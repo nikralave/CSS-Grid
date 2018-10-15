@@ -1,3 +1,118 @@
-.container {
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+:root {
+    --background: rgba(85, 214, 170, .85);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+margin: 0;
+background: #222;
+font-family: Roboto, sans-serif;
+}
+
+.content {
+    height: 200vh;
+    background-image: url(https://images.unsplash.com/photo-1522199755839-a2bacb67c546?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8aa38437c9b977558f5b430d68773742&auto=format&fit=crop&w=1052&q=80);
+    background-color: #333;
+    background-blend-mode: multiply;
+    background-size: cover;
     display: grid;
+    color: hotpink;
+    place-items: center;
+}
+
+/* Navigation Styles Start Here */
+
+header {
+   background: var(--background);
+   text-align: center;
+   position: fixed;
+   z-index: 999;
+   width: 100%;  
+}
+
+.nav-toggle {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+  }
+
+  .nav-toggle:focus ~ .nav-toggle-label {
+    outline: 3px solid rgba(lightblue, .75);
+  }
+
+.nav-toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: #fff;
+    height: 2px;
+    width: 2em;
+    border-radius:2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+    top: 7px;
+}
+
+
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%; 
+    left: 0;
+    background: var(--background);
+    width: 100%;
+    display: none;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+.nav-toggle:checked ~ nav {
+    display: block;
 }
